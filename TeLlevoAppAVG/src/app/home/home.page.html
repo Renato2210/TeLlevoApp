@@ -7,6 +7,7 @@
 </ion-header>
 
 <ion-content class="page-background">
+
   <ion-card>
     <ion-card-header>
       <ion-card-title>Bienvenido, {{ username }}</ion-card-title>
@@ -14,20 +15,21 @@
     <ion-card-content>
       <p>Elige una opción para continuar:</p>
 
-      <!-- Botón para alumnos con movilización propia -->
-      <ion-button expand="full" color="success" (click)="programarViaje()">
+      <div class="button-container">
+      <ion-button  color="success" (click)="programarViaje()">
         Programar Viaje (Con movilización propia)
       </ion-button>
 
-      <!-- Botón para alumnos sin movilización propia -->
-      <ion-button expand="full" color="primary" (click)="buscarViaje()">
+      
+      <ion-button  color="primary" (click)="buscarViaje()">
         Buscar Viaje (Sin movilización propia)
       </ion-button>
 
-      <!-- Botón para simular pago y comenzar el viaje -->
-      <ion-button expand="full" color="secondary" (click)="comenzarViaje()">
+      
+      <ion-button class="startbutton"(click)="comenzarViaje()">
         Comenzar Viaje
       </ion-button>
+    </div>
     </ion-card-content>
   </ion-card>
 </ion-content>

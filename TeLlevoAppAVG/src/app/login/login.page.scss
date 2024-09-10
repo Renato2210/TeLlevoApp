@@ -45,6 +45,8 @@
   }
   
   .reset-button {
+    --background: #5a5f5c; /* Color de fondo verde */
+    --background-activated: #454b45; /* Color de fondo al presionar */
     --border-radius: 10px; /* Bordes redondeados */
     --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar efecto de elevación */
     --color: white; /* Color del texto */
@@ -72,3 +74,10 @@
   .recuerdame{
     --background: none;
   }
+
+.button-container{
+  display: flex;
+  flex-direction: column; /* Alinea los botones verticalmente */
+  justify-content: center;
+  align-items: center;
+}

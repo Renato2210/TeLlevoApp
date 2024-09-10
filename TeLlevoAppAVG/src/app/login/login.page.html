@@ -25,6 +25,8 @@
     <ion-toggle justify="end">Recuerdame</ion-toggle><br /><br />
   </ion-item>
 
-  <ion-button expand="full" (click)="login()" class="login-button">Ingresar</ion-button>
-  <ion-button expand="full" color="light" (click)="goToResetPassword()" class="reset-button">Restablecer Contraseña</ion-button>
+  <div class="button-container">
+  <ion-button  (click)="login()" class="login-button">Ingresar</ion-button>
+  <ion-button  (click)="goToResetPassword()" class="reset-button">Restablecer Contraseña</ion-button>
+  </div>
 </ion-content>

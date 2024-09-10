@@ -54,3 +54,26 @@ ion-button {
 ion-button:active {
   transform: scale(0.98); /* Efecto al presionar */
 }
+
+ion-card{
+  --background: rgba(81, 119, 121, 0.589); 
+}
+
+p{
+  color: rgb(207, 207, 207);
+  font-weight: bold;
+}
+
+.button-container{
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+}
+
+.startbutton{
+  --background: #a85158; 
+  
+}
+
+
