@@ -4,20 +4,27 @@
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content class="ion-padding">
-  <form (ngSubmit)="login()">
-    <ion-item>
-      <ion-label position="floating">Nombre de Usuario</ion-label>
-      <ion-input [(ngModel)]="username" name="username" required></ion-input>
-    </ion-item>
+  <!-- Agregar el logo -->
+  <div class="logo-container">
+    <img src="./assets/img/TeLlevoLogo.jpeg" alt="" class="logo">
+  </div>
 
-    <ion-item>
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
-    </ion-item>
+  <ion-item>
+    <ion-label position="floating">Nombre de Usuario</ion-label>
+    <ion-input [(ngModel)]="username"></ion-input>
+  </ion-item>
 
-    <ion-button expand="full" type="submit">INGRESAR</ion-button>
-  </form>
+  <ion-item>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input [(ngModel)]="password" type="password"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-toggle justify="end">Recuerdame</ion-toggle><br /><br />
+  </ion-item>
 
-  <ion-button expand="full" color="light" (click)="goToResetPassword()">Restablecer Contraseña</ion-button>
+  <ion-button expand="full" (click)="login()" class="login-button">Ingresar</ion-button>
+  <ion-button expand="full" color="light" (click)="goToResetPassword()" class="reset-button">Restablecer Contraseña</ion-button>
 </ion-content>

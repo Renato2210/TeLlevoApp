@@ -1,0 +1,48 @@
+  /* Estilos LOGO */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .logo {
+    width: 350px;
+    height: 350px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 2px solid #00fff2; 
+  }
+
+  /* Estilo botones */
+.login-button {
+    --background: #4caf99; /* Color de fondo verde */
+    --background-activated: #45A049; /* Color de fondo al presionar */
+    --border-radius: 30px; /* Bordes redondeados */
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar efecto de elevación */
+    --color: white; /* Color del texto */
+    font-weight: bold; /* Texto en negrita */
+    margin-top: 20px; /* Espacio superior */
+    transition: transform 0.2s; /* Transición para efecto de presionar */
+  
+    /* Efecto de presionar */
+    &:active {
+      transform: scale(0.98); /* Reduce ligeramente el tamaño al presionar */
+    }
+  }
+  
+  .reset-button {
+    --background: #f5c37e; /* Color de fondo naranja */
+    --background-activated: #ec971f; /* Color de fondo al presionar */
+    --border-radius: 10px; /* Bordes redondeados */
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar efecto de elevación */
+    --color: white; /* Color del texto */
+    font-weight: bold; /* Texto en negrita */
+    margin-top: 10px; /* Espacio superior */
+    transition: transform 0.2s; /* Transición para efecto de presionar */
+  
+    /* Efecto de presionar */
+    &:active {
+      transform: scale(0.98); /* Reduce ligeramente el tamaño al presionar */
+    }
+  }
