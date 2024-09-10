@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Programar Viaje</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="page-background">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Programar Viaje</ion-card-title>
+    </ion-card-header>
+    
+    <ion-card-content>
+      <ion-item>
+        <ion-input label="Input with placeholder" placeholder="Enter company name"></ion-input>
+      </ion-item>
+      <!-- Formulario para la dirección y precio -->
+      <ion-item>
+        <ion-label position="floating">Dirección de Destino</ion-label>
+        <ion-input [(ngModel)]="destino" name="destino" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Precio por Persona</ion-label>
+        <ion-input [(ngModel)]="precio" name="precio" type="number" required></ion-input>
+      </ion-item>
+
+      <!-- Botón para fijar el precio -->
+      <ion-button class="fijar" expand="full" (click)="fijarPrecio()">Fijar</ion-button>
+    </ion-card-content>
+
+    <!-- Pie de página con el botón de cancelar -->
+    <ion-footer>
+      <ion-button class="cancelar" expand="full" color="light" (click)="cancelar()">Cancelar</ion-button>
+    </ion-footer>
+  </ion-card>
+</ion-content>

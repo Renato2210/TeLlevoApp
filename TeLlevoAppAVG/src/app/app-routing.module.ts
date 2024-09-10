@@ -20,8 +20,16 @@ const routes: Routes = [
     loadChildren: () => import('./reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
   },
   {
-    path: 'base',
-    loadChildren: () => import('./base/base.module').then( m => m.BasePageModule)
+    path: 'programar-viaje',
+    loadChildren: () => import('./HomeFeatures/programar-viaje/programar-viaje.module').then( m => m.ProgramarViajePageModule)
+  },
+  {
+    path: 'buscar-viaje',
+    loadChildren: () => import('./HomeFeatures/buscar-viaje/buscar-viaje.module').then( m => m.BuscarViajePageModule)
+  },
+  {
+    path: 'comenzar-viaje',
+    loadChildren: () => import('./HomeFeatures/comenzar-viaje/comenzar-viaje.module').then( m => m.ComenzarViajePageModule)
   },
 ];
 

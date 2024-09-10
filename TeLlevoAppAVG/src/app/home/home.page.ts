@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HomePage implements OnInit {
   username: string = 'Usuario';
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute,private router: Router) {}
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -16,6 +17,18 @@ export class HomePage implements OnInit {
         this.username = params['username'];
       }
     });
+  }
+
+  programarViaje() {
+    this.router.navigate(['/programar-viaje']);
+  }
+
+  buscarViaje() {
+    this.router.navigate(['/buscar-viaje']);
+  }
+
+  comenzarViaje() {
+    this.router.navigate(['/comenzar-viaje']);
   }
 
 }

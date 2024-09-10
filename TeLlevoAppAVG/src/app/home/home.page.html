@@ -6,6 +6,28 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <h2>Bienvenido {{ username }}</h2>
+<ion-content class="page-background">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Bienvenido, {{ username }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Elige una opción para continuar:</p>
+
+      <!-- Botón para alumnos con movilización propia -->
+      <ion-button expand="full" color="success" (click)="programarViaje()">
+        Programar Viaje (Con movilización propia)
+      </ion-button>
+
+      <!-- Botón para alumnos sin movilización propia -->
+      <ion-button expand="full" color="primary" (click)="buscarViaje()">
+        Buscar Viaje (Sin movilización propia)
+      </ion-button>
+
+      <!-- Botón para simular pago y comenzar el viaje -->
+      <ion-button expand="full" color="secondary" (click)="comenzarViaje()">
+        Comenzar Viaje
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

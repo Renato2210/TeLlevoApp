@@ -1,3 +1,20 @@
+ion-content {
+  --background: none; 
+}
+
+.page-background {
+  background-image: url('/assets/img/background.png'); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  height: 100%; 
+}
+
+ion-toolbar {
+  --background: rgb(116, 145, 146);   
+}
+
+
 #container {
   text-align: center;
 
@@ -24,4 +41,16 @@
 
 #container a {
   text-decoration: none;
+}
+
+ion-button {
+  --border-radius: 10px; /* Bordes redondeados */
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+  --padding-start: 16px; /* Ajuste de padding */
+  --padding-end: 16px; /* Ajuste de padding */
+  margin-top: 10px; /* Espaciado entre botones */
+}
+
+ion-button:active {
+  transform: scale(0.98); /* Efecto al presionar */
 }

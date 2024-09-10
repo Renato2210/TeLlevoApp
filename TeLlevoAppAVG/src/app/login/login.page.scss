@@ -14,6 +14,19 @@
     border: 2px solid #00fff2; 
   }
 
+
+  ion-content {
+    --background: none; 
+  }
+  
+  .page-background {
+    background-image: url('/assets/img/background.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 100%; 
+  }
+
   /* Estilo botones */
 .login-button {
     --background: #4caf99; /* Color de fondo verde */
@@ -32,8 +45,6 @@
   }
   
   .reset-button {
-    --background: #f5c37e; /* Color de fondo naranja */
-    --background-activated: #ec971f; /* Color de fondo al presionar */
     --border-radius: 10px; /* Bordes redondeados */
     --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar efecto de elevación */
     --color: white; /* Color del texto */
@@ -45,4 +56,19 @@
     &:active {
       transform: scale(0.98); /* Reduce ligeramente el tamaño al presionar */
     }
+  }
+
+  ion-toolbar {
+    --background: rgb(116, 145, 146);   
+  }
+
+  ion-item{
+    --background: rgba(126, 177, 179, 0.452);   
+    --border-radius: 30px;
+    --border-color: transparent;
+    margin-bottom: 10px;
+  }
+
+  .recuerdame{
+    --background: none;
   }

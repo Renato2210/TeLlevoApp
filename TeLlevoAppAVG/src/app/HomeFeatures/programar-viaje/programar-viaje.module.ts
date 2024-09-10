@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { BasePageRoutingModule } from './base-routing.module';
+import { ProgramarViajePageRoutingModule } from './programar-viaje-routing.module';
 
-import { BasePage } from './base.page';
+import { ProgramarViajePage } from './programar-viaje.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    BasePageRoutingModule
+    ProgramarViajePageRoutingModule
   ],
-  declarations: [BasePage]
+  declarations: [ProgramarViajePage]
 })
-export class BasePageModule {}
+export class ProgramarViajePageModule {}
