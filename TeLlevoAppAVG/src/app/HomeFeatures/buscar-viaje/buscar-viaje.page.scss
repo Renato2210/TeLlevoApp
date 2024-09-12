@@ -1,0 +1,96 @@
+ion-content {
+    --background: none; 
+  }
+  
+  .page-background {
+    background-image: url('/assets/img/background.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 100%; 
+  }
+
+  ion-toolbar {
+    --background: rgb(116, 145, 146);   
+    --color: white;
+  }
+
+
+  .page-background {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .map-container {
+    text-align: center;
+    padding: 16px;
+  }
+  
+  .map-image {
+    width: 100%;
+    max-width: 600px; 
+    border-radius: 8px; 
+  }
+  
+  .vehicle-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 16px;
+    
+  }
+  
+  .vehicle-card {
+    width: 30%; 
+    margin: 8px;
+    text-align: center;
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    --background: rgba(126, 177, 179, 0.452);
+  }
+  
+  .vehicle-image {
+    width: 100%;
+    max-width: 150px; 
+    border-bottom: 1px solid #ddd; 
+    border-radius: 8px 8px 0 0; 
+  }
+  
+  ion-card-content {
+    padding: 8px;
+  }
+  
+  ion-button {
+    border-radius: 15px; /* Bordes redondeados para el botón */
+  }
+  
+  .cancelar {
+    --background: #9c9c9c;
+    --background-activated: #706f6f; 
+    --border-radius: 10px; 
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    --color: white; 
+    font-weight: bold; 
+    margin-top: 10px; 
+    transition: transform 0.2s; 
+  
+  
+    &:active {
+      transform: scale(0.98); 
+    }
+  }
+
+  .button-container{
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+  }
+
+  ion-item{
+    --background: rgba(126, 177, 179, 0.452);   
+    --border-radius: 30px;
+    --border-color: transparent;
+    margin-bottom: 10px;
+  }

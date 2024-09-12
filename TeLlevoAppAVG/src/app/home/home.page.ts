@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +8,8 @@ import { Router } from '@angular/router';
 })
 export class HomePage implements OnInit {
   username: string = 'Usuario';
-  constructor(private route: ActivatedRoute,private router: Router) {}
+  
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -31,4 +31,9 @@ export class HomePage implements OnInit {
     this.router.navigate(['/comenzar-viaje']);
   }
 
+  cerrarSesion() {
+    // Implementa la lógica para cerrar sesión, como limpiar datos del usuario
+    // y redirigir a la página de login.
+    this.router.navigate(['/login']);
+  }
 }

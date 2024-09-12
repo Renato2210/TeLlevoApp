@@ -16,20 +16,23 @@
       <p>Elige una opción para continuar:</p>
 
       <div class="button-container">
-      <ion-button  color="success" (click)="programarViaje()">
-        Programar Viaje (Con movilización propia)
-      </ion-button>
+        <ion-button color="success" (click)="programarViaje()">
+          Programar Viaje (Con movilización propia)
+        </ion-button>
 
-      
-      <ion-button  color="primary" (click)="buscarViaje()">
-        Buscar Viaje (Sin movilización propia)
-      </ion-button>
+        <ion-button color="primary" (click)="buscarViaje()">
+          Buscar Viaje (Sin movilización propia)
+        </ion-button>
 
-      
-      <ion-button class="startbutton"(click)="comenzarViaje()">
-        Comenzar Viaje
-      </ion-button>
-    </div>
+      </div>
     </ion-card-content>
   </ion-card>
+
+
+  <ion-footer class="footer">
+    <ion-button class="logout-button" (click)="cerrarSesion()">
+      Cerrar Sesión
+    </ion-button>
+  </ion-footer>
+
 </ion-content>
