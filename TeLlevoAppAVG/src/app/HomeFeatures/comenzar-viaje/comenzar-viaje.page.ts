@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-comenzar-viaje',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComenzarViajePage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
-
+  cancelarViaje() {
+    // Acción a realizar al cancelar, por ejemplo, redirigir a la página anterior
+    this.router.navigate(['/home']); // Redirigir a la página de inicio u otra página deseada
+  }
 }

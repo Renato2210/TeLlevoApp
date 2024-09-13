@@ -7,7 +7,6 @@
 </ion-header>
 
 <ion-content class="page-background">
-
   <ion-card>
     <ion-card-header>
       <ion-card-title>Bienvenido, {{ username }}</ion-card-title>
@@ -24,15 +23,16 @@
           Buscar Viaje (Sin movilización propia)
         </ion-button>
 
+        <ion-button color="tertiary" (click)="comenzarViaje()">
+          Comenzar Viaje
+        </ion-button>
       </div>
     </ion-card-content>
   </ion-card>
-
 
   <ion-footer class="footer">
     <ion-button class="logout-button" (click)="cerrarSesion()">
       Cerrar Sesión
     </ion-button>
   </ion-footer>
-
 </ion-content>

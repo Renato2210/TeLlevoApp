@@ -1,13 +1,22 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>comenzar-viaje</ion-title>
+    <ion-title>Comenzar Viaje</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">comenzar-viaje</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="page_background">
+  <div class="image-container">
+    <img src="./assets/img/start-trip.jpeg" alt="Iniciando Viaje" class="start-trip-image">
+  </div>
+
+  <div class="loading-container">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Buscando Conductores...</p>
+  </div>
+
+  <div class="cancelar">
+    <ion-button (click)="cancelarViaje()">
+      Cancelar
+    </ion-button>
+  </div>
 </ion-content>
