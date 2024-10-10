@@ -44,15 +44,15 @@ ion-toolbar {
 }
 
 ion-button {
-  --border-radius: 10px; /* Bordes redondeados */
-  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
-  --padding-start: 16px; /* Ajuste de padding */
-  --padding-end: 16px; /* Ajuste de padding */
-  margin-top: 10px; /* Espaciado entre botones */
+  --border-radius: 10px; 
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  --padding-start: 16px; 
+  --padding-end: 16px; 
+  margin-top: 10px; 
 }
 
 ion-button:active {
-  transform: scale(0.98); /* Efecto al presionar */
+  transform: scale(0.98); 
 }
 
 ion-card{

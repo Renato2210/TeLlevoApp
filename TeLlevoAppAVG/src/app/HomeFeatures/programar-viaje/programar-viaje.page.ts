@@ -15,7 +15,6 @@ export class ProgramarViajePage implements OnInit {
   ngOnInit() {
   }
   fijarPrecio() {
-    // Aquí puedes agregar lógica para manejar el precio fijado
     console.log('Dirección:', this.destino);
     console.log('Precio:', this.precio);
   }

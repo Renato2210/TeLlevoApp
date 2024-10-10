@@ -13,7 +13,6 @@ export class ComenzarViajePage implements OnInit {
   ngOnInit() {
   }
   cancelarViaje() {
-    // Acción a realizar al cancelar, por ejemplo, redirigir a la página anterior
-    this.router.navigate(['/home']); // Redirigir a la página de inicio u otra página deseada
+    this.router.navigate(['/home']);
   }
 }
