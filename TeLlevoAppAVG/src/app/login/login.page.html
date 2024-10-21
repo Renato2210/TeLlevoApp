@@ -32,8 +32,11 @@
     <ion-spinner name="crescent"></ion-spinner>
   </div>
 
-  <div class="button-container">
+  <div class="button-container-two">
     <ion-button (click)="login()" class="login-button">Ingresar</ion-button>
+    <ion-button [routerLink]="['/register']" class="register-button">Registrar</ion-button>
+    </div>
+    <div class="button-container">
     <ion-button (click)="goToResetPassword()" class="reset-button">Restablecer Contraseña</ion-button>
   </div>
 </ion-content>

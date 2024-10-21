@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
+import { authGuard } from './servicios/auth.guard'; 
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
+    canActivate: [authGuard]
   },
   {
     path: '',
@@ -13,24 +14,41 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
   },
   {
     path: 'reset-password',
-    loadChildren: () => import('./reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
+    loadChildren: () => import('./reset-password/reset-password.module').then(m => m.ResetPasswordPageModule)
   },
   {
     path: 'programar-viaje',
-    loadChildren: () => import('./HomeFeatures/programar-viaje/programar-viaje.module').then( m => m.ProgramarViajePageModule)
+    loadChildren: () => import('./HomeFeatures/programar-viaje/programar-viaje.module').then(m => m.ProgramarViajePageModule),
+    canActivate: [authGuard] 
   },
   {
     path: 'buscar-viaje',
-    loadChildren: () => import('./HomeFeatures/buscar-viaje/buscar-viaje.module').then( m => m.BuscarViajePageModule)
+    loadChildren: () => import('./HomeFeatures/buscar-viaje/buscar-viaje.module').then(m => m.BuscarViajePageModule),
+    canActivate: [authGuard] 
   },
   {
     path: 'comenzar-viaje',
-    loadChildren: () => import('./HomeFeatures/comenzar-viaje/comenzar-viaje.module').then( m => m.ComenzarViajePageModule)
+    loadChildren: () => import('./HomeFeatures/comenzar-viaje/comenzar-viaje.module').then(m => m.ComenzarViajePageModule),
+    canActivate: [authGuard] 
   },
+
+  // Ruta error
+  {
+    path: '**',
+    loadChildren: () => import('./error/error.module').then(m => m.ErrorPageModule)
+  },
+  {
+    path: 'error',
+    loadChildren: () => import('./error/error.module').then( m => m.ErrorPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  }
 ];
 
 @NgModule({

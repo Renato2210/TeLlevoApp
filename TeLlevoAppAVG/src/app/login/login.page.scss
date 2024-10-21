@@ -37,8 +37,21 @@
     font-weight: bold; 
     margin-top: 20px; 
     transition: transform 0.2s; 
-  
- 
+    flex: 1;
+    margin: 5px;
+  }
+
+    .register-button {
+      --background: #4c7faf; 
+      --background-activated: #45A049; 
+      --border-radius: 30px; 
+      --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      --color: white; 
+      font-weight: bold; 
+      margin-top: 20px; 
+      transition: transform 0.2s; 
+      flex: 1;
+      margin: 5px;
     &:active {
       transform: scale(0.98); 
     }
@@ -52,7 +65,8 @@
     --color: white; 
     font-weight: bold; 
     margin-top: 10px; 
-    transition: transform 0.2s; 
+    transition: transform 0.2s;
+     
   
 
     &:active {
@@ -80,6 +94,11 @@
   flex-direction: column; 
   justify-content: center;
   align-items: center;
+}
+
+.button-container-two{
+  display: flex;
+  justify-content: space-between;  
 }
 
 .loading-container {
