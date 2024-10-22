@@ -10,19 +10,19 @@ import { Router } from '@angular/router';
 export class ResetPasswordPage implements OnInit {
   username: string = '';
   spinner: boolean = false;
-  errorMessage: string = ''; // Variable para el mensaje de error
+  errorMessage: string = ''; 
 
   constructor(private navCtrl: NavController, private router: Router) {}
 
   resetPassword() {
-    if (this.username.trim() === '') { // Verificar si el campo de usuario está vacío
+    if (this.username.trim() === '') { 
       this.errorMessage = 'Por favor ingrese su nombre de usuario';
-      return; // Salir de la función si el campo está vacío
+      return; 
     }
 
     this.spinner = true;
 
-    // Simular una operación asincrónica
+
     setTimeout(() => {
       this.spinner = false;
       this.navCtrl.navigateForward('/login');
@@ -30,7 +30,7 @@ export class ResetPasswordPage implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['/login']); // Navegar de vuelta al login
+    this.router.navigate(['/login']);
   }
 
   ngOnInit() {}

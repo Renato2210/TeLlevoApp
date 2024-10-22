@@ -1,0 +1,60 @@
+.page-background {
+    background-image: url('/assets/img/background.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 100%; 
+  }
+
+  ion-content {
+    --background: none; 
+  }
+
+  ion-toolbar {
+    --background: rgb(116, 145, 146);   
+  }
+
+  ion-item{
+    --background: rgba(126, 177, 179, 0.452);   
+    --border-radius: 30px;
+    --border-color: transparent;
+    margin-bottom: 10px;
+    margin-top: 20px;
+  }
+
+  .register-button {
+    --background: #4c7faf; 
+    --background-activated: #45A049; 
+    --border-radius: 30px; 
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    --color: white; 
+    font-weight: bold; 
+    margin-top: 20px; 
+    transition: transform 0.2s; 
+    flex: 1;
+    margin: 5px;
+  &:active {
+    transform: scale(0.98); 
+  }
+}
+
+.back-button {
+  --background: #5a5f5c; 
+  --background-activated: #454b45; 
+  --border-radius: 10px; 
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  --color: white; 
+  font-weight: bold; 
+  margin-top: 10px; 
+  transition: transform 0.2s; 
+
+  
+  &:active {
+    transform: scale(0.98); 
+  }
+}
+
+.button-container-two{
+  display: flex;
+  justify-content: space-between;  
+}

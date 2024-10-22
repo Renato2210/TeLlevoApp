@@ -43,6 +43,17 @@ export class LoginPage implements OnInit {
     }, 1000);
   }
 
+  register() {
+    this.spinner = true;
+
+
+    setTimeout(() => {
+      console.log('button registro');
+      this.spinner = false; 
+      this.navCtrl.navigateForward('/register');
+    }, 500);
+  }
+
   ngOnInit() {
   }
 }

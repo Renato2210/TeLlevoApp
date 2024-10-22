@@ -36,11 +36,6 @@ const routes: Routes = [
     canActivate: [authGuard] 
   },
 
-  // Ruta error
-  {
-    path: '**',
-    loadChildren: () => import('./error/error.module').then(m => m.ErrorPageModule)
-  },
   {
     path: 'error',
     loadChildren: () => import('./error/error.module').then( m => m.ErrorPageModule)
@@ -48,7 +43,12 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
-  }
+  },
+
+  {
+    path: '**',
+    loadChildren: () => import('./error/error.module').then(m => m.ErrorPageModule)
+  },
 ];
 
 @NgModule({

@@ -5,9 +5,43 @@
 </ion-header>
 
 <ion-content class="page-background">
+
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Pagina de registro</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div id="container">
+          <ion-item>
+            <ion-input
+              [(ngModel)]="user.username"
+              label="Usuario"
+              labelPlacement="floating"
+              placeholder="Ingrese su usuario"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input
+              [(ngModel)]="user.email"
+              label="Correo"
+              labelPlacement="floating"
+              placeholder="Ingrese su correo"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input
+              [(ngModel)]="user.password"
+              label="Contraseña"
+              labelPlacement="floating"
+              type="password"
+              placeholder="Ingrese su contraseña"
+            ></ion-input>
+          </ion-item>
+
+          <div class="button-container-two">            
+            <ion-button (click)="register()" class="register-button">Registrar</ion-button>
+            <ion-button (click)="atras()" class="back-button">Atrás</ion-button>
+            </div>         
+  </div>
 </ion-content>
