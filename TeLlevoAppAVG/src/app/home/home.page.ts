@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticatorService } from 'src/app/servicios/authenticator.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class HomePage implements OnInit {
   username: string = 'Usuario';
   
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private route: ActivatedRoute, 
+    private router: Router,
+    private auth: AuthenticatorService
+  ) {}
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -32,8 +37,8 @@ export class HomePage implements OnInit {
   }
 
   cerrarSesion() {
-    // Implementa la lógica para cerrar sesión, como limpiar datos del usuario
-    // y redirigir a la página de login.
+
+    this.auth.logout()
     this.router.navigate(['/login']);
   }
 }
