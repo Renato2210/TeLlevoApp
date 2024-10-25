@@ -42,3 +42,15 @@
   color: white;
   font-weight: bold;
 }
+
+.back-button {
+  --background: #5a5f5c; 
+  --background-activated: #454b45; 
+  --border-radius: 10px; 
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  --color: white; 
+  font-weight: bold; 
+  margin-top: 10px; 
+  transition: transform 0.2s; 
+  display: flex;
+}

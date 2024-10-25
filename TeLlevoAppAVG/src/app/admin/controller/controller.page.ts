@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { APIControllerService } from 'src/app/servicios/apicontroller.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-controller',
@@ -13,7 +14,7 @@ export class ControllerPage implements OnInit {
   nuevoUsuario = { username: '', email: '', password: '' };
   usuarioEditado: any = {};
   isEditMode: boolean = false;
-  constructor(private api: APIControllerService) { }
+  constructor(private api: APIControllerService,private router: Router,) { }
 
   ngOnInit() {
     this.cargarUsuarios();
@@ -52,7 +53,7 @@ export class ControllerPage implements OnInit {
       }
     );
   }
-  
+
   cancelarAgregarUsuario() {
     this.isFormularioVisible = false;
     this.nuevoUsuario = { username: '', email: '', password: '' }; 
@@ -91,5 +92,9 @@ export class ControllerPage implements OnInit {
   cancelarEdicion() {
     this.isEditMode = false;
     this.usuarioEditado = {};
+  }
+
+  atras() {
+    this.router.navigate(['/login']);
   }
 }

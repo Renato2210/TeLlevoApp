@@ -1,18 +1,21 @@
 import { Injectable } from '@angular/core';
 import { StorageService } from './storage.service';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticatorService {
   connnectionStatus: boolean = false;
-  constructor(private storage: StorageService) {}
+  private dbUrl = 'http://localhost:3000/users';
+  
+  constructor(private storage: StorageService,private http: HttpClient) {}
 
-  loginBDD(user: string, pass: String): Promise<boolean> {
-    return this.storage
-      .get(user)
+  loginBDD(user: string, pass: string): Promise<boolean> {
+    return this.storage.getUserFromJson(user)
       .then((res) => {
-        if (res.password == pass) {
+        // Asegúrate de que res no sea null antes de acceder a sus propiedades
+        if (res && res.password === pass) {
           this.connnectionStatus = true;
           return true;
         } else {
@@ -25,29 +28,31 @@ export class AuthenticatorService {
       });
   }
 
-  login(user: String, pass: String): boolean {
-    if (user == 'admin' && pass == 'admin1234') {
+  login(user: string, pass: string): boolean {
+    if (user === 'admin' && pass === 'admin1234') {
       this.connnectionStatus = true;
       return true;
     }
     this.connnectionStatus = false;
     return false;
   }
+
   logout() {
     this.connnectionStatus = false;
   }
+
   isConected() {
     return this.connnectionStatus;
   }
-  async register(user: any):Promise<boolean> {
-    return this.storage.set(user.username, user).then((res) => {
-        if (res != null) {
-          return true;
-        }else{
-          return false;
-        }
+
+  async register(user: any): Promise<boolean> {
+    // Aquí se hace la petición POST para registrar al usuario
+    return this.http.post(this.dbUrl, user).toPromise()
+      .then((res) => {
+        return true;
       })
       .catch((error) => {
+        console.error('Error al registrar usuario:', error);
         return false;
       });
   }

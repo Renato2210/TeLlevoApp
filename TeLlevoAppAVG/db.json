@@ -1,16 +1,16 @@
 {
   "users": [
     {
-      "username": "admins",
+      "username": "admin",
       "email": "admin@admin.cl",
       "password": "admin123",
       "id": "dcb2"
     },
     {
-      "id": "ac87",
-      "username": "veges",
-      "email": "veges",
-      "password": "veges"
+      "id": "5658",
+      "username": "max",
+      "email": "max@duocuc.cl",
+      "password": "max123"
     }
   ]
 }
