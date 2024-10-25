@@ -1,0 +1,101 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="page-background">
+
+  <div id="container">
+    <ion-card class="mantenedor">
+      <ion-card-header>
+        <ion-card-title>Usuarios TeLlevoApp</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+
+          <ion-item>
+            <ion-button (click)="mostrarFormulario()" class="btn-formulario">
+              Agregar nuevo Usuario
+            </ion-button>
+          </ion-item>
+          
+          <ion-card *ngIf="isFormularioVisible">
+            <ion-card-header>
+              <ion-card-title>Agregar Usuario</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-item>
+                <ion-label position="floating">Nombre Usuario</ion-label>
+                <ion-input [(ngModel)]="nuevoUsuario.username"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Correo Usuario</ion-label>
+                <ion-input type="email" [(ngModel)]="nuevoUsuario.email"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Contraseña Usuario</ion-label>
+                <ion-input type="password" [(ngModel)]="nuevoUsuario.password"></ion-input>
+              </ion-item>
+              <div class="button-group">
+                <ion-button class="btn-formulario" (click)="agregarUsuario()">
+                  Guardar Usuario
+                </ion-button>
+                <ion-button color="danger" (click)="cancelarAgregarUsuario()">
+                  Cancelar
+                </ion-button>
+              </div>
+            </ion-card-content>
+          </ion-card>
+
+          <ion-grid fixed>
+            <ion-row *ngFor="let user of users">
+              <ion-col>
+                <div><ion-label class="txt-credenciales">Usuario: </ion-label>{{user.username}}</div>
+                <div><ion-label class="txt-credenciales">Email: </ion-label>{{user.email}}</div>
+                <div><ion-label class="txt-credenciales">Contraseña: </ion-label>{{user.password}}</div>
+                <div>
+                  <ion-button class="btn-mini" (click)="modificarUsuario(user)">
+                    Modificar
+                  </ion-button>
+                  <ion-button class="btn-mini" (click)="eliminarUsuario(user.id)">
+                    Eliminar
+                  </ion-button>
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-spinner *ngIf="users.length === 0"></ion-spinner>
+          </ion-grid>
+
+          <ion-card *ngIf="isEditMode">
+            <ion-card-header>
+              <ion-card-title>Modificar Usuario</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-item>
+                <ion-label position="floating">Nombre Usuario</ion-label>
+                <ion-input [(ngModel)]="usuarioEditado.username"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Correo Usuario</ion-label>
+                <ion-input type="email" [(ngModel)]="usuarioEditado.email"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Contraseña Usuario</ion-label>
+                <ion-input type="text" [(ngModel)]="usuarioEditado.password"></ion-input>
+              </ion-item>
+              <ion-button class="btn-formulario" (click)="guardarCambios()">
+                Guardar Cambios
+              </ion-button>
+              <ion-button color="danger" (click)="cancelarEdicion()">
+                Cancelar
+              </ion-button>
+            </ion-card-content>
+          </ion-card>
+
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>

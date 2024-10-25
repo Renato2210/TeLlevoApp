@@ -8,8 +8,11 @@ import { AuthenticatorService } from './../servicios/authenticator.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  username: string = '';
-  password: string = '';
+  user = {
+    username: '',
+    password: '',
+  };
+  
   mensaje: string = '';
   spinner: boolean = false;
   
@@ -20,7 +23,7 @@ export class LoginPage implements OnInit {
   ) { }
 
   login() {
-    if (!this.username || !this.password) {
+    if (!this.user.username || !this.user.password) {
       this.mensaje = 'Usuario y/o Contraseña vacíos';
       return;
     }
@@ -28,13 +31,13 @@ export class LoginPage implements OnInit {
     this.cambiarSpinner(); 
 
     this.auth
-      .loginBDD(this.username, this.password) 
+      .loginBDD(this.user.username, this.user.password) 
       .then((res) => {
         this.mensaje = 'Conexión exitosa';
 
         setTimeout(() => {
           this.navCtrl.navigateForward('/home', {
-            queryParams: { username: this.username }
+            queryParams: { username: this.user.username }
           });
           this.cambiarSpinner(); 
           this.mensaje = ''; 

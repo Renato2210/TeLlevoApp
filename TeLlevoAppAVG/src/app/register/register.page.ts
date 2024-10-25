@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { AuthenticatorService } from 'src/app/servicios/authenticator.service';
@@ -17,7 +16,6 @@ export class RegisterPage implements OnInit {
   };
   spinner: boolean = false;
   constructor(
-    private navCtrl: NavController,
     private auth: AuthenticatorService,
     private router: Router,
     private toastController: ToastController

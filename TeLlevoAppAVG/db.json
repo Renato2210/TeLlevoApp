@@ -1,19 +1,16 @@
 {
-    "users": [
-      {
-        "username": "j.riquelmee",
-        "email": "correo@correo.cl",
-        "password": "pass1234"
-      },
-      {
-        "username": "z.test",
-        "email": "email@gmail.com",
-        "password": "password1234"
-      },
-      {
-        "username": "i.prueba",
-        "email": "prueba@outlook.com",
-        "password": "contraseña"
-      }
-    ]
-  }
+  "users": [
+    {
+      "username": "admins",
+      "email": "admin@admin.cl",
+      "password": "admin123",
+      "id": "dcb2"
+    },
+    {
+      "id": "ac87",
+      "username": "veges",
+      "email": "veges",
+      "password": "veges"
+    }
+  ]
+}

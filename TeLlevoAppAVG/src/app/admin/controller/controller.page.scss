@@ -1,0 +1,44 @@
+    ion-content {
+    --background: none; 
+   }
+
+  .page-background {
+    background-image: url('/assets/img/background.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 100%; 
+  }
+
+  ion-toolbar {
+    --background: rgb(116, 145, 146);   
+  }
+
+.mantenedor{
+  --background: rgb(71, 101, 102);
+}
+
+.mantenedor-content{
+  --background: rgb(71, 101, 102);
+}
+
+.btn-formulario{
+  --background: #ffffff; 
+  --background-activated: #bcf8bf; 
+  --border-radius: 30px; 
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  --color: rgb(0, 0, 0); 
+  font-weight: bold; 
+  margin-top: 20px; 
+  transition: transform 0.2s; 
+  margin: 5px;
+}
+
+.btn-mini{
+  --background: #969696; 
+}
+
+.txt-credenciales{
+  color: white;
+  font-weight: bold;
+}
