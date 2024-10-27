@@ -27,27 +27,31 @@ export class LoginPage implements OnInit {
       this.mensaje = 'Usuario y/o Contraseña vacíos';
       return;
     }
-
-    this.cambiarSpinner(); 
-
+  
+    this.cambiarSpinner();
+  
     this.auth
-      .loginBDD(this.user.username, this.user.password) 
+      .loginBDD(this.user.username, this.user.password)
       .then((res) => {
-        this.mensaje = 'Conexión exitosa';
-
-        setTimeout(() => {
-          this.navCtrl.navigateForward('/home', {
-            queryParams: { username: this.user.username }
-          });
-          this.cambiarSpinner(); 
-          this.mensaje = ''; 
-        }, 1500);
+        if (res) {
+          this.mensaje = 'Conexión exitosa';
+  
+          setTimeout(() => {
+            this.navCtrl.navigateForward('/home', {
+              queryParams: { username: this.user.username },
+            });
+            this.cambiarSpinner();
+            this.mensaje = '';
+          }, 1500);
+        } else {
+          this.mensaje = 'Error en las credenciales';
+          this.cambiarSpinner();
+        }
       })
       .catch((error) => {
-        setTimeout(() => {
-          this.mensaje = 'Error en las credenciales';
-          this.cambiarSpinner(); 
-        }, 1000); 
+        this.mensaje = 'Error en el sistema';
+        console.log('Error:', error);
+        this.cambiarSpinner();
       });
   }
 
