@@ -4,6 +4,7 @@
       TeLlevoApp
     </ion-title>
   </ion-toolbar>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
 </ion-header>
 
 <ion-content class="page-background">
@@ -13,6 +14,18 @@
     </ion-card-header>
     <ion-card-content>
       <p>Elige una opción para continuar:</p>
+
+      <div id='map' style='width: 400px; height: 300px;'></div>
+
+      <script>
+      mapboxgl.accessToken = 'pk.eyJ1IjoibWF4dmFyZ2FzcCIsImEiOiJjbTMzZTZjYTkxbTlsMmxvZzJ6Y29pZnh4In0.43O71nFAF2N6XzIzcRIl1w';
+      const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v12', // style URL
+        center: [-74.5, 40], // starting position [lng, lat]
+        zoom: 9, // starting zoom
+      });
+      </script>
 
       <div class="button-container">
         <ion-button color="success" (click)="programarViaje()">
