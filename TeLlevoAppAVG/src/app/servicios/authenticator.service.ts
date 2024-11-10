@@ -7,14 +7,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthenticatorService {
   connnectionStatus: boolean = false;
-  private dbUrl = 'http://localhost:3000/users';
+  private dbUrl = 'https://xh72s73s-3000.brs.devtunnels.ms/users';
   
   constructor(private storage: StorageService,private http: HttpClient) {}
 
   loginBDD(user: string, pass: string): Promise<boolean> {
     return this.storage.getUserFromJson(user)
       .then((res) => {
-        // Asegúrate de que res no sea null antes de acceder a sus propiedades
         if (res && res.password === pass) {
           this.connnectionStatus = true;
           return true;
@@ -23,7 +22,7 @@ export class AuthenticatorService {
         }
       })
       .catch((error) => {
-        console.log('Error en el sistema: ' + error);
+        console.error('Error en el sistema:', error); 
         return false;
       });
   }

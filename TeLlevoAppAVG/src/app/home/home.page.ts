@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticatorService } from 'src/app/servicios/authenticator.service';
 import mapboxgl from 'mapbox-gl';
+import { Platform } from '@ionic/angular';
 import { Geolocation } from '@capacitor/geolocation';
 
 @Component({
@@ -16,9 +17,10 @@ export class HomePage implements OnInit, AfterViewInit {
   destination: [number, number] | undefined;
 
   constructor(
-    private route: ActivatedRoute, 
+    private route: ActivatedRoute,
     private router: Router,
-    private auth: AuthenticatorService
+    private auth: AuthenticatorService,
+    private platform: Platform
   ) {
     mapboxgl.accessToken = 'pk.eyJ1IjoibWF4dmFyZ2FzcCIsImEiOiJjbTMzZW94MWcwNGQ3Mmxwd29oYnk3YWR2In0.s3_-2Y8bW0S8JKfffDT_8A';
   }
@@ -31,14 +33,46 @@ export class HomePage implements OnInit, AfterViewInit {
     });
   }
 
+  async requestLocationPermission() {
+    try {
+      if (this.platform.is('hybrid')) {
+        const permission = await Geolocation.requestPermissions();
+
+        if (permission.location === 'granted') {
+          console.log('Permiso de ubicación concedido en dispositivo móvil');
+          this.userLocation = await this.getCurrentLocation();
+          this.loadMap();
+        } else {
+          console.log('Permiso de ubicación denegado en dispositivo móvil');
+        }
+      } else {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            this.userLocation = [position.coords.longitude, position.coords.latitude];
+            console.log('Permiso de ubicación concedido en la web');
+            this.loadMap();
+          },
+          (error) => {
+            console.error('Permiso de ubicación denegado en la web:', error);
+          }
+        );
+      }
+    } catch (error) {
+      console.error('Error solicitando permiso de ubicación:', error);
+    }
+  }
+
   async ngAfterViewInit() {
-    this.userLocation = await this.getCurrentLocation();
-    this.loadMap();
+    await this.requestLocationPermission();
   }
 
   async getCurrentLocation(): Promise<[number, number]> {
-    const position = await Geolocation.getCurrentPosition();
-    return [position.coords.longitude, position.coords.latitude];
+    if (this.platform.is('hybrid')) {
+      const position = await Geolocation.getCurrentPosition();
+      return [position.coords.longitude, position.coords.latitude];
+    } else {
+      return [0, 0];
+    }
   }
 
   loadMap() {
@@ -50,12 +84,10 @@ export class HomePage implements OnInit, AfterViewInit {
         zoom: 14
       });
 
-      // Añadir marcador en la ubicación del usuario
       new mapboxgl.Marker({ color: 'blue' })
         .setLngLat(this.userLocation)
         .addTo(this.map);
 
-      // Espera a que el usuario seleccione un destino en el mapa
       this.map.on('click', (event) => {
         this.destination = [event.lngLat.lng, event.lngLat.lat];
         this.addDestinationMarker();
@@ -74,7 +106,6 @@ export class HomePage implements OnInit, AfterViewInit {
 
   drawRoute() {
     if (this.userLocation && this.destination && this.map) {
-      // Definir los datos de la ruta con el tipo explícito 'FeatureCollection'
       const routeData: GeoJSON.FeatureCollection = {
         type: 'FeatureCollection',
         features: [
@@ -84,7 +115,7 @@ export class HomePage implements OnInit, AfterViewInit {
               type: 'LineString',
               coordinates: [this.userLocation, this.destination]
             },
-            properties: {}  // Agregar 'properties' como un objeto vacío
+            properties: {}
           }
         ]
       };

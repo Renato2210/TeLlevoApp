@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class StorageService {
   private bdd: Storage | null = null;
-  private dbUrl = 'http://localhost:3000/users'; // Cambia la URL si es necesario
+  private dbUrl = 'https://xh72s73s-3000.brs.devtunnels.ms/users'; 
 
   constructor(private storage: Storage, private http: HttpClient) {
     this.init();
@@ -18,7 +18,7 @@ export class StorageService {
     this.bdd = await this.storage.create();
   }
 
-  // Método para obtener usuarios desde db.json
+ 
   getUserFromJson(username: string): Promise<any> {
     return this.http
       .get<any[]>(this.dbUrl)
