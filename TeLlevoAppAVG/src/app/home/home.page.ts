@@ -91,7 +91,6 @@ export class HomePage implements OnInit, AfterViewInit {
       this.map.on('click', (event) => {
         this.destination = [event.lngLat.lng, event.lngLat.lat];
         this.addDestinationMarker();
-        this.drawRoute();
       });
     }
   }
@@ -104,40 +103,7 @@ export class HomePage implements OnInit, AfterViewInit {
     }
   }
 
-  drawRoute() {
-    if (this.userLocation && this.destination && this.map) {
-      const routeData: GeoJSON.FeatureCollection = {
-        type: 'FeatureCollection',
-        features: [
-          {
-            type: 'Feature',
-            geometry: {
-              type: 'LineString',
-              coordinates: [this.userLocation, this.destination]
-            },
-            properties: {}
-          }
-        ]
-      };
-  
-      if (this.map.getSource('route')) {
-        (this.map.getSource('route') as mapboxgl.GeoJSONSource).setData(routeData);
-      } else {
-        this.map.addSource('route', {
-          type: 'geojson',
-          data: routeData
-        });
-  
-        this.map.addLayer({
-          id: 'route',
-          type: 'line',
-          source: 'route',
-          layout: { 'line-join': 'round', 'line-cap': 'round' },
-          paint: { 'line-color': '#3880ff', 'line-width': 4 }
-        });
-      }
-    }
-  }
+
 
   programarViaje() {
     this.router.navigate(['/programar-viaje']);

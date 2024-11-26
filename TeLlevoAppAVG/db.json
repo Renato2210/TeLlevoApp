@@ -12,5 +12,14 @@
       "email": "max@duocuc.cl",
       "password": "max123"
     }
+  ],
+  "viajes": [
+    {},
+    {
+      "id": "3d0d",
+      "destino": "Carrascal 4250",
+      "precio": 4000,
+      "capacidad": 3
+    }
   ]
 }
