@@ -24,4 +24,15 @@ export class APIControllerService {
   deleteUser(id: string): Observable<any> {
     return this.http.delete(this.apiURL + "/users/" + id);
   }
+
+  getViajes(): Observable<any> {
+    return this.http.get(this.apiURL + "/viajes");
+  }
+
+  deleteTrip(id: string): Observable<any> {
+    return this.http.delete(this.apiURL + "/viajes/" + id);
+  }
+
+
+  
 }

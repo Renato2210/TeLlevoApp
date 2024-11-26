@@ -21,42 +21,7 @@ ion-content {
     flex-direction: column;
     height: 100%;
   }
-  
-  .map-container {
-    text-align: center;
-    padding: 16px;
-  }
-  
-  .map-image {
-    width: 100%;
-    max-width: 600px; 
-    border-radius: 8px; 
-  }
-  
-  .vehicle-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 16px;
-    
-  }
-  
-  .vehicle-card {
-    width: 30%; 
-    margin: 8px;
-    text-align: center;
-    border-radius: 8px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    --background: rgba(126, 177, 179, 0.452);
-  }
-  
-  .vehicle-image {
-    width: 100%;
-    max-width: 150px; 
-    border-bottom: 1px solid #ddd; 
-    border-radius: 8px 8px 0 0; 
-  }
-  
+
   ion-card-content {
     padding: 8px;
   }
@@ -90,8 +55,12 @@ ion-content {
   }
 
   ion-item{
-    --background: rgba(126, 177, 179, 0.452);   
+    --background: rgba(76, 99, 100, 0.452);   
     --border-radius: 30px;
     --border-color: transparent;
     margin-bottom: 10px;
+  }
+
+  ion-label{
+    --color: black;
   }

@@ -10,46 +10,51 @@ import { Router } from '@angular/router';
 export class ControllerPage implements OnInit {
 
   users: any[] = [];
+  viajes: any[] = []; 
   isFormularioVisible = false; 
   nuevoUsuario = { username: '', email: '', password: '' };
   usuarioEditado: any = {};
   isEditMode: boolean = false;
-  constructor(private api: APIControllerService,private router: Router,) { }
+
+  constructor(private api: APIControllerService, private router: Router) { }
 
   ngOnInit() {
     this.cargarUsuarios();
+    this.cargarViajes();
   }
 
-    mostrarFormulario() {
-      this.isFormularioVisible = !this.isFormularioVisible; 
-    }
+  // Gestión de usuarios
+  mostrarFormulario() {
+    this.isFormularioVisible = !this.isFormularioVisible; 
+  }
 
   cargarUsuarios() {
     this.api.getUsers().subscribe(
       (data) => {
-        this.users = data
-        console.log(this.users)
+        this.users = data;
+        console.log(this.users);
       },
       (error) => {
-        console.log("Error en la llamada :" + error)
-      });
+        console.error("Error en la llamada:", error);
+      }
+    );
   }
 
   agregarUsuario() {
     if (!this.nuevoUsuario.username || !this.nuevoUsuario.email || !this.nuevoUsuario.password) {
-      console.log("Campos Vacio");
+      console.error("Campos Vacíos");
       return;
     }
 
     this.api.postUser(this.nuevoUsuario).subscribe(
       (data) => {
         console.log("Usuario agregado:", data);
-        this.users.push(data); 
-        this.nuevoUsuario = { username: '', email: '', password: '' }; 
-        this.isFormularioVisible = false; 
+        this.users.push(data);
+        this.nuevoUsuario = { username: '', email: '', password: '' };
+        this.isFormularioVisible = false;
       },
       (error) => {
-        console.log("Error al agregar el usuario:", error);
+        console.error("Error al agregar el usuario:", error);
       }
     );
   }
@@ -94,6 +99,32 @@ export class ControllerPage implements OnInit {
     this.usuarioEditado = {};
   }
 
+  // Gestión de viajes
+  cargarViajes() {
+    this.api.getViajes().subscribe(
+      (data) => {
+        this.viajes = data;
+        console.log(this.viajes);
+      },
+      (error) => {
+        console.error('Error cargando viajes:', error);
+      }
+    );
+  }
+
+  eliminarViaje(id: any) {
+    this.api.deleteTrip(id).subscribe(
+      () => {
+        this.viajes = this.viajes.filter(viajes => viajes.id !== id);
+        console.log('Viaje eliminado');
+      },
+      (error) => {
+        console.error('Error eliminando viaje:', error);
+      }
+    );
+  }
+
+  // Navegación
   atras() {
     this.router.navigate(['/login']);
   }

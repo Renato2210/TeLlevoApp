@@ -14,6 +14,7 @@ export class ProgramarViajePage implements OnInit, AfterViewInit {
   destino: string = '';
   precio: number = 0;
   capacidad: number = 0;
+  horario: string = '';
   map: mapboxgl.Map | undefined;
   marker: mapboxgl.Marker | undefined;
   userLocation: [number, number] | undefined;
@@ -201,12 +202,14 @@ export class ProgramarViajePage implements OnInit, AfterViewInit {
     console.log('Destino:', this.destino);
     console.log('Precio:', this.precio);
     console.log('Capacidad:', this.capacidad);
+    console.log('Horario:', this.horario);
 
     // Preparar datos para enviar al servidor
     const data = {
       destino: this.destino,
       precio: this.precio,
       capacidad: this.capacidad,
+      horario: this.horario,
     };
 
     // Enviar datos al servidor

@@ -32,6 +32,11 @@
         <ion-input [(ngModel)]="capacidad" name="capacidad" type="number" required></ion-input>
       </ion-item>
 
+      <ion-item>
+        <ion-label position="floating">Hora Salida</ion-label>
+        <ion-input [(ngModel)]="horario" name="horario" type="string" required></ion-input>
+      </ion-item>
+
       <!-- Botón para fijar precio -->
       <div class="button-container">
         <ion-button class="fijar" (click)="fijarPrecio()">Fijar</ion-button>
