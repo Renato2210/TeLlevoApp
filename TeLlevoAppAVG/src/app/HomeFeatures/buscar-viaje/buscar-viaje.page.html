@@ -7,16 +7,16 @@
 </ion-header>
 
 <ion-content class="page-background">
-  <ion-item *ngFor="let viaje of viajes">
-    <ion-label>
-      <h2>Dirección: {{ viaje.destino }}</h2>
-      <p>Capacidad: {{ viaje.capacidad }}</p>
-      <p>Hora Salida: {{ viaje.horario }}</p> 
-      <p>Precio: ${{ viaje.precio }}</p>
-    </ion-label>
-    <ion-button slot="end" (click)="solicitar(viaje)">Solicitar</ion-button>
-  </ion-item>
-
+  <ion-content class="contenedor">
+    <ion-item *ngFor="let viaje of viajes">
+      <ion-label>
+        <h2>Dirección: {{ viaje.destino }}</h2>
+        <p>Capacidad: {{ viaje.capacidad }}</p>
+        <p>Hora Salida: {{ viaje.horario }}</p> 
+        <p>Precio: ${{ viaje.precio }}</p>
+      </ion-label>
+      <ion-button slot="end" (click)="solicitar(viaje)">Solicitar</ion-button>
+    </ion-item>
   <ion-footer>
     <div class="button-container">
       <ion-button class="cancelar" color="light" (click)="cancelar()">Cancelar</ion-button>
