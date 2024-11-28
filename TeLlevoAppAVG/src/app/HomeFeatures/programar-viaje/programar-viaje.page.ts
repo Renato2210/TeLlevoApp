@@ -2,6 +2,8 @@ import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angula
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import mapboxgl from 'mapbox-gl';
+import { Geolocation } from '@capacitor/geolocation';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-programar-viaje',
@@ -22,12 +24,52 @@ export class ProgramarViajePage implements OnInit, AfterViewInit {
 
   constructor(
     private router: Router, 
-    private http: HttpClient
+    private http: HttpClient,
+    private platform: Platform
+    
   ) {
     mapboxgl.accessToken = 'pk.eyJ1IjoibWF4dmFyZ2FzcCIsImEiOiJjbTMzZW94MWcwNGQ3Mmxwd29oYnk3YWR2In0.s3_-2Y8bW0S8JKfffDT_8A';
   }
 
   ngOnInit() {
+  }
+
+  async requestLocationPermission() {
+    try {
+      if (this.platform.is('hybrid')) {
+        const permission = await Geolocation.requestPermissions();
+
+        if (permission.location === 'granted') {
+          console.log('Permiso de ubicación concedido en dispositivo móvil');
+          this.userLocation = await this.getCurrentLocation();
+          this.initializeMap();
+        } else {
+          console.log('Permiso de ubicación denegado en dispositivo móvil');
+        }
+      } else {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            this.userLocation = [position.coords.longitude, position.coords.latitude];
+            console.log('Permiso de ubicación concedido en la web');
+            this.initializeMap();
+          },
+          (error) => {
+            console.error('Permiso de ubicación denegado en la web:', error);
+          }
+        );
+      }
+    } catch (error) {
+      console.error('Error solicitando permiso de ubicación:', error);
+    }
+  }
+
+  async getCurrentLocation(): Promise<[number, number]> {
+    if (this.platform.is('hybrid')) {
+      const position = await Geolocation.getCurrentPosition();
+      return [position.coords.longitude, position.coords.latitude];
+    } else {
+      return [0, 0];
+    }
   }
 
   ngAfterViewInit() {
@@ -213,11 +255,11 @@ export class ProgramarViajePage implements OnInit, AfterViewInit {
         horario: this.horario,
     };
 
-    this.http.post('http://localhost:3000/viajes', data).subscribe(
+    this.http.post('https://xh72s73s-3000.brs.devtunnels.ms/viajes', data).subscribe(
         response => {
             console.log('Viaje programado con éxito', response);
             alert('Viaje programado con éxito.');
-            this.router.navigate(['/home']);
+            this.router.navigate(['/viaje-iniciado']);
         }, 
         error => {
             console.error('Error al guardar el viaje', error);
@@ -225,7 +267,6 @@ export class ProgramarViajePage implements OnInit, AfterViewInit {
         }
     );
 
-    this.router.navigate(['/comenzar-viaje']);
 }
 
   cancelar() {

@@ -15,32 +15,53 @@
   ],
   "viajes": [
     {
-      "id": "54bc",
-      "destino": "Carrascal 4240",
-      "precio": 6000,
-      "capacidad": 4,
-      "horario": "13:50"
-    },
-    {
-      "id": "dbd8",
-      "destino": "Alameda 549",
-      "precio": 10000,
-      "capacidad": 6,
-      "horario": "14:55"
-    },
-    {
-      "id": "e2c6",
-      "destino": "Pingo Pingo 1312",
-      "precio": 2500,
-      "capacidad": 3,
-      "horario": "17:32"
-    },
-    {
       "id": "3c42",
       "destino": "Pje. Tres 5809, Santiago",
       "precio": 4500,
       "capacidad": 6,
       "horario": "13:20"
+    },
+    {
+      "id": "4837",
+      "destino": "Carrascal 4230, Santiago",
+      "precio": 5000,
+      "capacidad": 6,
+      "horario": "20:30"
+    },
+    {
+      "id": "99ac",
+      "destino": "Padre Tadeo 1920, Santiago",
+      "precio": 4,
+      "capacidad": 2,
+      "horario": "12:30"
+    },
+    {
+      "id": "0583",
+      "destino": "Av. Providencia 4023, Santiago",
+      "precio": 4500,
+      "capacidad": 6,
+      "horario": "14:20"
+    },
+    {
+      "id": "e295",
+      "destino": "Hoevel 4501, Santiago",
+      "precio": 5000,
+      "capacidad": 4,
+      "horario": "20:12"
+    },
+    {
+      "id": "0f69",
+      "destino": "Hoevel 1010, Santiago",
+      "precio": 5,
+      "capacidad": 5,
+      "horario": "13:20"
+    },
+    {
+      "id": "b4f9",
+      "destino": "hoevel 1012, Santiago ",
+      "precio": 5800,
+      "capacidad": 5,
+      "horario": "13:35"
     }
   ]
 }

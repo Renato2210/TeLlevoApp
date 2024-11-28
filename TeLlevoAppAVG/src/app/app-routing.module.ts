@@ -49,6 +49,10 @@ const routes: Routes = [
     loadChildren: () => import('./admin/controller/controller.module').then( m => m.ControllerPageModule)
   },
   {
+    path: 'viaje-iniciado',
+    loadChildren: () => import('./HomeFeatures/viaje-iniciado/viaje-iniciado.module').then( m => m.ViajeIniciadoPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./error/error.module').then(m => m.ErrorPageModule)
   },

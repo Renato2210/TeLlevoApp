@@ -114,7 +114,7 @@ export class HomePage implements OnInit, AfterViewInit {
   }
 
   comenzarViaje() {
-    this.router.navigate(['/comenzar-viaje']);
+    this.router.navigate(['/viaje-iniciado']);
   }
 
   cerrarSesion() {

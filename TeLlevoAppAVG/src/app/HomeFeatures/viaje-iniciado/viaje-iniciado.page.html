@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Viaje Iniciado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="page_background">
+  <div class="image-container">
+    <img src="./assets/img/start-trip.jpeg" alt="Iniciando Viaje" class="start-trip-image">
+  </div>
+  <div class="loading-container">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Viaje en Curso...</p>
+  </div>
+
+
+  <div class="cancelar">
+    <ion-button (click)="cancelarViaje()">
+      Cancelar
+    </ion-button>
+  </div>
+</ion-content>
