@@ -27,10 +27,14 @@ export class BuscarViajePage implements OnInit {
     );
   }
 
-  solicitar(tipoVehiculo: string) {
-    console.log(`Solicitar ${tipoVehiculo}`);
-    this.router.navigate(['/solicitud'], {
-      queryParams: { tipo: tipoVehiculo }
+  solicitar(viaje: any) {
+    this.router.navigate(['/comenzar-viaje'], {
+      queryParams: {
+        destino: viaje.destino,
+        capacidad: viaje.capacidad,
+        horario: viaje.horario,
+        precio: viaje.precio
+      }
     });
   }
 

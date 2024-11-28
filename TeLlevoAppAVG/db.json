@@ -20,6 +20,27 @@
       "precio": 6000,
       "capacidad": 4,
       "horario": "13:50"
+    },
+    {
+      "id": "dbd8",
+      "destino": "Alameda 549",
+      "precio": 10000,
+      "capacidad": 6,
+      "horario": "14:55"
+    },
+    {
+      "id": "e2c6",
+      "destino": "Pingo Pingo 1312",
+      "precio": 2500,
+      "capacidad": 3,
+      "horario": "17:32"
+    },
+    {
+      "id": "3c42",
+      "destino": "Pje. Tres 5809, Santiago",
+      "precio": 4500,
+      "capacidad": 6,
+      "horario": "13:20"
     }
   ]
 }

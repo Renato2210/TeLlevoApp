@@ -14,19 +14,16 @@
       <!-- Mapa -->
       <div #mapContainer id='map' style='width: 100%; height: 300px;'></div>
 
-      <!-- Input para dirección de destino -->
       <ion-item>
         <ion-label position="floating">Dirección de Destino</ion-label>
         <ion-input [(ngModel)]="destino" name="destino" required (ionBlur)="searchAddress()"></ion-input>
       </ion-item>
 
-      <!-- Input para precio -->
       <ion-item>
         <ion-label position="floating">Precio por Persona</ion-label>
         <ion-input [(ngModel)]="precio" name="precio" type="number" required></ion-input>
       </ion-item>
 
-      <!-- Input para capacidad -->
       <ion-item>
         <ion-label position="floating">Capacidad</ion-label>
         <ion-input [(ngModel)]="capacidad" name="capacidad" type="number" required></ion-input>
@@ -37,7 +34,6 @@
         <ion-input [(ngModel)]="horario" name="horario" type="string" required></ion-input>
       </ion-item>
 
-      <!-- Botón para fijar precio -->
       <div class="button-container">
         <ion-button class="fijar" (click)="fijarPrecio()">Fijar</ion-button>
       </div>
